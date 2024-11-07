@@ -1,0 +1,20 @@
+name: Esempio di Workflow
+
+on:
+  workflow_dispatch:
+    inputs:
+      myInput:
+        description: 'Descrizione del tuo input'
+        required: true
+        default: 'valore-di-default'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout del repository
+        uses: actions/checkout@v2
+
+      - name: Esegui un passo di esempio
+        run: echo "Il valore del mio input è: ${{ github.event.inputs.myInput }}"
